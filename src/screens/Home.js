@@ -15,23 +15,8 @@ class Home extends React.Component {
         title: 'Home',
     };
 
-    kirimPesan(){
-        socket.emit('chat:pesan', {nama:"iqbal",pesan:"halo"});
-    }
-
-    componentDidMount(){
-        axios.get('http://192.168.1.3:3000/users')
-        .then(function (response) {
-          // handle success
-          console.log(response);
-        })
-        .catch(function (error) {
-          // handle error
-          alert(error);
-        })
-        .finally(function () {
-          // always executed
-        });
+    sendSMS(){
+        socket.emit('chat:pesan', {title:"title",body:"OTP here"});
     }
 
     render() {
@@ -43,7 +28,7 @@ class Home extends React.Component {
             <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
                 <Button
                     title="kirim pesan"
-                    onPress={() => this.kirimPesan()}
+                    onPress={() => this.sendSMS()}
                 />
                 <Text>Home Screen</Text>
                 <Button
