@@ -14,7 +14,7 @@ class Home extends React.Component {
     static navigationOptions = {
         title: 'Home',
     };
-
+    //send sms
     sendSMS(){
         socket.emit('chat:pesan', {title:"title",body:"OTP here"});
     }
